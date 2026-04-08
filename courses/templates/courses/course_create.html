@@ -1,0 +1,16 @@
+<h2>Create Course</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="title" placeholder="Course title" required><br><br>
+
+  <textarea name="description" placeholder="Description" required></textarea><br><br>
+
+  <select name="delivery_mode">
+    <option value="online">Online</option>
+    <option value="live">Live</option>
+    <option value="class">In-Class</option>
+  </select><br><br>
+
+  <button type="submit">Create</button>
+</form>

@@ -1,0 +1,103 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+
+<h1>{{ lesson.title }}</h1>
+
+{% if enrollment %}
+
+    {% if lesson.video_url %}
+        <p>
+            <a href="{{ lesson.video_url }}" target="_blank"
+               style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#FF0000;
+                    color:#fff;
+                    text-decoration:none;
+                    font-weight:bold;
+                    border-radius:6px;
+               ">
+                ▶ Watch Video on YouTube
+            </a>
+        </p>
+    {% else %}
+        <p style="color:#777;">No video available.</p>
+    {% endif %}
+
+    {% if lesson.content %}
+        <div style="
+            margin-top:20px;
+            padding:15px;
+            border:1px solid #ddd;
+            border-radius:6px;
+            background:#fafafa;
+        ">
+            {{ lesson.content|linebreaks }}
+        </div>
+    {% endif %}
+
+    <hr>
+
+    {% if lesson_progress and lesson_progress.completed %}
+        <button disabled
+            style="
+                padding:10px 20px;
+                background:#28a745;
+                color:#fff;
+                border:none;
+                border-radius:6px;
+                font-weight:bold;
+            ">
+            ✅ Completed
+        </button>
+    {% else %}
+        <form method="post" action="{% url 'mark_lesson_complete' lesson.id %}">
+            {% csrf_token %}
+            <button type="submit"
+                style="
+                    padding:10px 20px;
+                    background:#007bff;
+                    color:#fff;
+                    border:none;
+                    border-radius:6px;
+                    font-weight:bold;
+                    cursor:pointer;
+                ">
+                Mark as Completed
+            </button>
+        </form>
+    {% endif %}
+
+{% else %}
+    <div style="
+        padding:15px;
+        background:#fff3cd;
+        border:1px solid #ffeeba;
+        border-radius:6px;
+        color:#856404;
+        margin-bottom:20px;
+    ">
+        🔒 You must be enrolled in this course to access this lesson.
+    </div>
+
+    <a href="{% url 'course_detail' lesson.module.course.id %}"
+       style="
+            padding:10px 18px;
+            background:#6c757d;
+            color:#fff;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:bold;
+       ">
+        ← Back to Course
+    </a>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'course_detail' lesson.module.course.id %}">
+    ← Back to Course
+</a>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>{{ course.title }}</h1>
+<p>{{ course.description }}</p>
+
+<!-- Course Meta Info -->
+<div class="mb-3">
+    <p><strong>Instructor:</strong> {{ course.instructor.username }}</p>
+    <p><strong>Duration:</strong> {{ course.duration_hours }} hours</p>
+    <p><strong>Delivery Mode:</strong> {{ course.get_delivery_mode_display }}</p>
+    <p><strong>Price:</strong> {{ course.price }} USD</p>
+    <p><strong>Seats Left:</strong> {{ course.seats_left }}</p>
+</div>
+
+<hr>
+
+<!-- Enrollment / Registration Section -->
+{% if user.is_authenticated %}
+    {% if enrollment %}
+        <div class="course-progress-container mb-4">
+            <p class="mt-2 mb-1">
+                Your Progress: {{ enrollment.progress|floatformat:1 }}%
+            </p>
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar bg-success"
+                     role="progressbar"
+                     style="width: {{ enrollment.progress }}%;"
+                     aria-valuenow="{{ enrollment.progress }}"
+                     aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% if user.profile.role == 'STUDENT' %}
+            <a href="{% url 'course_register' course.id %}" class="btn btn-primary mb-3">
+                Register Now
+            </a>
+        {% else %}
+            <p class="text-muted">
+                Only students can enroll in this course.
+            </p>
+        {% endif %}
+    {% endif %}
+{% else %}
+    <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-primary mb-3">
+        Login to Register
+    </a>
+{% endif %}
+
+<hr>
+
+<!-- Instructor Controls -->
+{% if user.is_authenticated and user.profile.role == 'INSTRUCTOR' and course.instructor == user %}
+    <p>
+        <a href="{% url 'add_module' course.id %}">
+            ➕ Add Module
+        </a>
+    </p>
+{% endif %}
+
+<!-- Course Outline -->
+{% for module in modules %}
+    <h2>📦 {{ module.title }}</h2>
+
+    {% if user.is_authenticated and user.profile.role == 'INSTRUCTOR' and course.instructor == user %}
+        <p>
+            <a href="{% url 'add_lesson' module.id %}">
+                ➕ Add Lesson
+            </a>
+        </p>
+    {% endif %}
+
+    <ul>
+        {% for lesson in module.lessons.all %}
+            <li>
+                {% if enrollment %}
+                    <a href="{% url 'lesson_detail' lesson.id %}">
+                        ▶ {{ lesson.title }}
+                    </a>
+                {% else %}
+                    🔒 {{ lesson.title }}
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No lessons yet.</li>
+        {% endfor %}
+    </ul>
+
+{% empty %}
+    <p>No modules added yet.</p>
+{% endfor %}
+
+{% endblock %}

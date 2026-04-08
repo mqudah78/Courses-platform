@@ -1,0 +1,41 @@
+{% extends 'courses/base.html' %}
+{% block content %}
+
+<h2>Session Progress: {{ session.title }}</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Progress</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in students_progress %}
+        <tr>
+            <td>
+                {{ row.student.get_full_name|default:row.student.username }}
+            </td>
+            <td>
+                {{ row.progress }}%
+            </td>
+            <td>
+                {% if row.progress == 100 %}
+                    <span class="badge bg-success">Completed</span>
+                {% elif row.progress > 0 %}
+                    <span class="badge bg-warning">In Progress</span>
+                {% else %}
+                    <span class="badge bg-secondary">Not Started</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No students enrolled.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

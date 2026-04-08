@@ -1,0 +1,52 @@
+{% extends 'basemain.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="bg-qtdBlue text-white py-20 text-center">
+    <br>
+    <h1 class="text-4xl font-bold mb-4">Machine Learning Specialization</h1>
+    <p class="text-gray-200">Comprehensive coverage of predictive modeling and algorithm deployment.</p>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+
+        <div>
+            <h2 class="text-2xl font-bold text-qtdBlue mb-4">Course Overview</h2>
+            <p class="text-gray-600 mb-6">
+                Learn core machine learning concepts including supervised and unsupervised learning,
+                model evaluation, and real-world applications.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-3">What You Will Learn</h3>
+            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <li>Regression and classification</li>
+                <li>Model evaluation techniques</li>
+                <li>Feature engineering</li>
+                <li>Clustering algorithms</li>
+                <li>Hands-on ML projects</li>
+            </ul>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded shadow">
+            <p><strong>Duration:</strong> 20 Hours</p>
+            <p><strong>Level:</strong> Intermediate</p>
+            <p class="mb-2"><strong>Format:</strong> Online</p>
+            <!-- PRICE -->
+            <p class="mt-4 text-2xl font-bold text-qtdGold">
+                $149
+            </p>
+
+            <p class="text-sm text-gray-500">One-time payment</p>
+
+
+            <a href="{% url 'courses:courseEnroll' %}" class="block mt-6 py-3 bg-qtdGold text-white text-center rounded font-bold">
+                Enroll Now
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'basemain.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-qtdBlue text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+        <br>
+        <h1 class="text-4xl font-bold mb-4">Python for Beginners</h1>
+        <p class="text-lg text-gray-200">
+            Learn the fundamentals of Python programming, syntax, and basic data structures.
+        </p>
+    </div>
+</section>
+
+<!-- COURSE DETAILS -->
+<section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+
+        <!-- LEFT -->
+        <div>
+            <h2 class="text-2xl font-bold text-qtdBlue mb-4">Course Overview</h2>
+            <p class="text-gray-600 mb-6">
+                This course is designed for beginners who want to start their journey in programming using Python.
+                You will learn how to write clean and efficient code, understand programming logic,
+                and build a strong foundation in data structures.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-3">What You Will Learn</h3>
+            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <li>Python syntax and variables</li>
+                <li>Conditional statements (if/else)</li>
+                <li>Loops (for, while)</li>
+                <li>Functions and code organization</li>
+                <li>Lists, tuples, and dictionaries</li>
+                <li>Basic problem solving</li>
+            </ul>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow">
+            <h3 class="text-xl font-bold text-qtdBlue mb-4">Course Info</h3>
+
+            <p class="mb-2"><strong>Duration:</strong> 24 Hours</p>
+            <p class="mb-2"><strong>Level:</strong> Beginner</p>
+            <p class="mb-2"><strong>Format:</strong> Online</p>
+            <!-- PRICE -->
+            <p class="mt-4 text-2xl font-bold text-qtdGold">
+                $99
+            </p>
+
+            <p class="text-sm text-gray-500">One-time payment</p>
+
+            <div class="mt-6">
+              <a href="{% url 'courses:courseEnroll' %}"
+                 class="px-6 py-3 bg-qtdGold text-white rounded-lg font-bold">
+                Enroll Now
+            </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- COURSE CONTENT -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl font-bold text-qtdBlue mb-6 text-center">Course Content</h2>
+
+        <div class="space-y-4">
+            <div class="p-4 bg-white rounded shadow">
+                <h3 class="font-semibold">Module 1: Introduction to Python</h3>
+                <p class="text-gray-600 text-sm">Setup, syntax, and first program</p>
+            </div>
+
+            <div class="p-4 bg-white rounded shadow">
+                <h3 class="font-semibold">Module 2: Control Structures</h3>
+                <p class="text-gray-600 text-sm">If statements and loops</p>
+            </div>
+
+            <div class="p-4 bg-white rounded shadow">
+                <h3 class="font-semibold">Module 3: Functions</h3>
+                <p class="text-gray-600 text-sm">Reusable code and parameters</p>
+            </div>
+
+            <div class="p-4 bg-white rounded shadow">
+                <h3 class="font-semibold">Module 4: Data Structures</h3>
+                <p class="text-gray-600 text-sm">Lists, tuples, dictionaries</p>
+            </div>
+
+            <div class="p-4 bg-white rounded shadow">
+                <h3 class="font-semibold">Module 5: Mini Project</h3>
+                <p class="text-gray-600 text-sm">Apply what you learned</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

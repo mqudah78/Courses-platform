@@ -1,0 +1,83 @@
+{% extends 'courses/base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Instructor Dashboard</h2>
+
+    <div class="row g-4">
+        <!-- Total Students -->
+        <div class="col-md-6">
+            <div class="card text-white bg-primary h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Total Students</h5>
+                    <p class="card-text display-6">{{ students_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Lessons -->
+        <div class="col-md-6">
+            <div class="card text-white bg-success h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Total Lessons</h5>
+                    <p class="card-text display-6">{{ lessons_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses and Students -->
+    <div class="mt-5">
+        <h4>Your Courses & Students Progress</h4>
+
+        {% for course in courses %}
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-secondary text-white">
+                <h5>{{ course.title }}</h5>
+                <p class="mb-0">Students Enrolled: {{ course.enrollments.count }}</p>
+            </div>
+            <div class="card-body">
+                {% if course.enrollments.exists %}
+                <ul class="list-group">
+                    {% for enrollment in course.enrollments.all %}
+                    <li class="list-group-item">
+                        <strong>{{ enrollment.student.get_full_name }}</strong>
+
+                        <div class="row mt-2">
+                            <!-- Progress -->
+                            <div class="col-md-6">
+                                <p class="mb-1">Progress: {{ enrollment.progress|floatformat:1 }}%</p>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar" role="progressbar"
+                                         style="width: {{ enrollment.progress }}%;"
+                                         aria-valuenow="{{ enrollment.progress }}"
+                                         aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Attendance -->
+                            <div class="col-md-6">
+                                <p class="mb-1">Attendance: {{ enrollment.attended_sessions }} / {{ enrollment.total_sessions }}</p>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-info" role="progressbar"
+                                         style="width: {{ enrollment.attendance_percent|floatformat:1 }}%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No students enrolled yet.</p>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <p>You are not teaching any courses yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

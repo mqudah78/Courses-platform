@@ -1,0 +1,48 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}My Sessions{% endblock %}
+
+{% block content %}
+<h2>Upcoming Sessions</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+{% for session in sessions %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5>{{ session.title }}</h5>
+        <p><b>Course:</b> {{ session.course.title }}</p>
+        <p><b>Date:</b> {{ session.date }}</p>
+        <p><b>Time:</b> {{ session.start_time }} - {{ session.end_time }}</p>
+
+        {% if session.session_type == 'LIVE' %}
+            <p><b>Zoom:</b>
+                <a href="{{ session.zoom_link }}" target="_blank">Join</a>
+            </p>
+        {% else %}
+            <p><b>Classroom:</b> {{ session.classroom }}</p>
+        {% endif %}
+
+        {# --- Enrollment Section --- #}
+        {% if session.course.id in enrolled_courses %}
+            <span class="badge bg-primary mt-2">Enrolled</span>
+        {% elif session.course.seats_left > 0 %}
+            <form method="post" action="{% url 'courses:enroll_course' session.course.id %}">
+                {% csrf_token %}
+                <button class="btn btn-success mt-2">Enroll</button>
+            </form>
+        {% else %}
+            <span class="badge bg-danger mt-2">Course Full</span>
+        {% endif %}
+    </div>
+</div>
+{% empty %}
+<p>No upcoming sessions.</p>
+{% endfor %}
+{% endblock %}
+
+

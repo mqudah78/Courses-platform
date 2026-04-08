@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QTD | Qudah Training & Development</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        qtdBlue: '#0f172a',
+                        qtdGold: '#f59e0b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+            url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-700 antialiased">
+
+<!-- NAVBAR -->
+<nav class="bg-white shadow-md fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+
+        <div class="flex items-center gap-2">
+            <span class="font-heading font-extrabold text-2xl text-qtdBlue">QTD</span>
+        </div>
+
+        <div class="hidden md:flex space-x-8 items-center">
+            <a href="{% url 'home' %}" class="hover:text-qtdBlue">Home</a>
+            <a href="#about" class="hover:text-qtdBlue">About</a>
+            <a href="#courses" class="hover:text-qtdBlue">Programs</a>
+            <a href="#batches" class="hover:text-qtdBlue">Schedules</a>
+
+            <a href="{% url 'login' %}"
+               class="px-4 py-2 bg-qtdGold text-white rounded font-semibold hover:bg-amber-600">
+                Login
+            </a>
+
+            <a href="{% url 'register' %}"
+               class="px-4 py-2 border border-qtdBlue text-qtdBlue rounded font-semibold hover:bg-qtdBlue hover:text-white">
+                Register
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+    <footer id="contact" class="bg-qtdBlue text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-1">
+                <span class="font-heading font-extrabold text-3xl tracking-tighter text-white">QTD</span>
+                <p class="mt-4 text-gray-400 text-sm">Empowering the next generation of professionals with quality training and development.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-bold mb-4 text-qtdGold">Quick Links</h4>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li><a href="#" class="hover:text-white">Home</a></li>
+                    <li><a href="#" class="hover:text-white">About Us</a></li>
+                    <li><a href="#" class="hover:text-white">Courses</a></li>
+                    <li><a href="#" class="hover:text-white">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold mb-4 text-qtdGold">Contact Us</h4>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li><i class="fa-solid fa-location-dot mr-2"></i> Amman, Jordan</li>
+                    <li><i class="fa-solid fa-phone mr-2"></i> +962-786288663</li>
+                    <li><i class="fa-solid fa-location-dot mr-2"></i> Dubai, UAE</li>
+                    <li><i class="fa-solid fa-phone mr-2"></i> +971-563901016</li>
+                    <li><i class="fa-solid fa-envelope mr-2"></i>moh_001@hotmail.com</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold mb-4 text-qtdGold">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-8 h-8 rounded bg-gray-700 flex items-center justify-center hover:bg-qtdGold transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded bg-gray-700 flex items-center justify-center hover:bg-qtdGold transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded bg-gray-700 flex items-center justify-center hover:bg-qtdGold transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+            &copy; 2026 Qudah Training & Development. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Student Dashboard</h2>
+
+    <div class="row g-4">
+        <!-- Enrolled Courses -->
+        <div class="col-md-6">
+            <div class="card text-white bg-primary h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Enrolled Courses</h5>
+                    <p class="card-text display-6">{{ enrolled_courses.count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed Lessons -->
+        <div class="col-md-6">
+            <div class="card text-white bg-success h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Completed Lessons</h5>
+                    <p class="card-text display-6">{{ completed_lessons_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses List -->
+    <div class="mt-5">
+        <h4>Your Courses</h4>
+        <div class="row g-4">
+            {% for enrollment in enrolled_courses %}
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ enrollment.course.title }}</h5>
+                        <p class="card-text">{{ enrollment.course.description|truncatewords:20 }}</p>
+                        <p class="text-muted">Enrolled At: {{ enrollment.enrolled_at|date:"M d, Y" }}</p>
+
+                        <!-- Progress -->
+                        <p class="mt-2 mb-1">Progress: {{ enrollment.progress|floatformat:1 }}%</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar" role="progressbar" 
+                                 style="width: {{ enrollment.progress }}%;" 
+                                 aria-valuenow="{{ enrollment.progress }}" 
+                                 aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+
+                        <a href="{% url 'course_detail' enrollment.course.id %}" class="btn btn-primary btn-sm">View Course</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>You are not enrolled in any courses yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

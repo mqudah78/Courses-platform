@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses</title>
+</head>
+<body>
+
+<h1>📚 Available Courses</h1>
+
+<ul>
+{% for course in courses %}
+    <li>
+        <a href="{% url 'course_detail' course.id %}">
+            {{ course.title }}
+        </a>
+    </li>
+{% empty %}
+    <li>No courses available.</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
