@@ -2,11 +2,10 @@
 {% load static %}
 
 {% block content %}
-<!-- HERO -->
 <section id="home" class="hero-bg h-screen flex items-center justify-center text-center pt-20">
     <div class="max-w-4xl px-4">
         <h1 class="text-white text-5xl font-heading font-bold mb-6">
-            Empowering Careers at <span class="text-qtdGold">QTD</span>
+            Empowering Careers at <span class="text-qtdGold">LearnSkillsWithMo</span>
         </h1>
         <p class="text-gray-300 mb-10">
             Quality Training & Development for the modern professional.
@@ -26,198 +25,183 @@
     </div>
 </section>
 
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading text-3xl font-bold text-qtdBlue">Why Choose QTD?</h2>
-                <div class="w-16 h-1 bg-qtdGold mx-auto mt-4 rounded"></div>
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-heading text-3xl font-bold text-qtdBlue">Why Choose LearnSkillsWithMo?</h2>
+            <div class="w-16 h-1 bg-qtdGold mx-auto mt-4 rounded"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="p-8 border rounded-xl hover:shadow-xl transition text-center group">
+                <div class="w-16 h-16 bg-blue-50 text-qtdBlue rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-qtdBlue group-hover:text-white transition">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Quality</h3>
+                <p class="text-gray-600">Our curriculum is built on high standardization principles to ensure quality and consistency.</p>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-8 border rounded-xl hover:shadow-xl transition text-center group">
-                    <div class="w-16 h-16 bg-blue-50 text-qtdBlue rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-qtdBlue group-hover:text-white transition">
-                        <i class="fa-solid fa-medal"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Quality</h3>
-                    <p class="text-gray-600">Our curriculum is built on high standardization principles to ensure quality and consistency.</p>
+            <div class="p-8 border rounded-xl hover:shadow-xl transition text-center group">
+                <div class="w-16 h-16 bg-blue-50 text-qtdBlue rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-qtdBlue group-hover:text-white transition">
+                    <i class="fa-solid fa-chalkboard-user"></i>
                 </div>
-                <div class="p-8 border rounded-xl hover:shadow-xl transition text-center group">
-                    <div class="w-16 h-16 bg-blue-50 text-qtdBlue rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-qtdBlue group-hover:text-white transition">
-                        <i class="fa-solid fa-chalkboard-user"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Training</h3>
-                    <p class="text-gray-600">Hands-on, project-based learning. We don't just teach theory; we prepare you for the job market.</p>
+                <h3 class="text-xl font-bold mb-3">Training</h3>
+                <p class="text-gray-600">Hands-on, project-based learning. We don't just teach theory; we prepare you for the job market.</p>
+            </div>
+            <div class="p-8 border rounded-xl hover:shadow-xl transition text-center group">
+                <div class="w-16 h-16 bg-blue-50 text-qtdBlue rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-qtdBlue group-hover:text-white transition">
+                    <i class="fa-solid fa-chart-line"></i>
                 </div>
-                <div class="p-8 border rounded-xl hover:shadow-xl transition text-center group">
-                    <div class="w-16 h-16 bg-blue-50 text-qtdBlue rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-qtdBlue group-hover:text-white transition">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Development</h3>
-                    <p class="text-gray-600">Beyond code and books, we focus on soft skills, interview prep, and career growth strategies.</p>
+                <h3 class="text-xl font-bold mb-3">Development</h3>
+                <p class="text-gray-600">Beyond code and books, we focus on soft skills, interview prep, and career growth strategies.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="courses" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="font-heading text-3xl font-bold text-qtdBlue">Popular Programs</h2>
+                <p class="text-gray-500 mt-2">Specialized training in Data Science, Python, and Project Management.</p>
+            </div>
+            <a href="#" class="hidden md:block text-qtdGold font-semibold hover:underline">View All Programs <i class="fa-solid fa-arrow-right ml-1"></i></a>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-xl transition">
+                <div class="h-40 bg-green-100 flex items-center justify-center text-green-700 text-4xl">
+                    <i class="fa-brands fa-python"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-qtdGold uppercase">Coding Foundations</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2">Python for Beginners</h3>
+                    <p class="text-sm text-gray-500 mb-4">Learn the fundamentals of Python programming, syntax, and basic data structures.</p>
+                    <a href="{% url 'courses:python_course' %}" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
+                <div class="h-40 bg-yellow-100 flex items-center justify-center text-yellow-700 text-4xl">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-qtdGold uppercase">Data Science</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2">Machine Learning Specialization</h3>
+                    <p class="text-sm text-gray-500 mb-4">Comprehensive coverage of predictive modeling and algorithm deployment.</p>
+                    <a href="{% url 'courses:ml_course' %}" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
+                <div class="h-40 bg-red-100 flex items-center justify-center text-red-700 text-4xl">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-qtdGold uppercase">Artificial Intelligence</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2">Deep Learning: Neural Networks</h3>
+                    <p class="text-sm text-gray-500 mb-4">Focus on complex model architecture including CNNs and RNNs.</p>
+                    <a href="{% url 'courses:dl_course' %}" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
+                <div class="h-40 bg-cyan-100 flex items-center justify-center text-cyan-700 text-4xl">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-qtdGold uppercase">Business Intelligence</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2">Microsoft Power BI Desktop</h3>
+                    <p class="text-sm text-gray-500 mb-4">Create compelling dashboards and reports for data-driven decisions.</p>
+                    <a href="{% url 'courses:powerbi_course' %}" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
+                <div class="h-40 bg-blue-100 flex items-center justify-center text-blue-700 text-4xl">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-qtdGold uppercase">Web Development</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2">Python and Django Full Stack Bootcamp</h3>
+                    <p class="text-sm text-gray-500 mb-4">Build robust, database-driven web applications using Django framework.</p>
+                    <a href="#" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
+                <div class="h-40 bg-purple-100 flex items-center justify-center text-purple-700 text-4xl">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-qtdGold uppercase">Project Management</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2">Agile Project Management: Scrum, Kanban & XP</h3>
+                    <p class="text-sm text-gray-500 mb-4">Master modern project methodologies essential for IT and business success.</p>
+                    <a href="#" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="courses" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="font-heading text-3xl font-bold text-qtdBlue">Popular Programs</h2>
-                    <p class="text-gray-500 mt-2">Specialized training in Data Science, Python, and Project Management.</p>
-                </div>
-                <a href="#" class="hidden md:block text-qtdGold font-semibold hover:underline">View All Programs <i class="fa-solid fa-arrow-right ml-1"></i></a>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-xl transition">
-                    <div class="h-40 bg-green-100 flex items-center justify-center text-green-700 text-4xl">
-                        <i class="fa-brands fa-python"></i>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-qtdGold uppercase">Coding Foundations</span>
-                        <h3 class="font-bold text-lg mt-2 mb-2">Python for Beginners</h3>
-                        <p class="text-sm text-gray-500 mb-4">Learn the fundamentals of Python programming, syntax, and basic data structures.</p>
-                        <a href="{% url 'courses:python_course' %}" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-                    <div class="h-40 bg-yellow-100 flex items-center justify-center text-yellow-700 text-4xl">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-qtdGold uppercase">Data Science</span>
-                        <h3 class="font-bold text-lg mt-2 mb-2">Machine Learning Specialization</h3>
-                        <p class="text-sm text-gray-500 mb-4">Comprehensive coverage of predictive modeling and algorithm deployment.</p>
-                        <a href="{% url 'courses:ml_course' %}" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-                    <div class="h-40 bg-red-100 flex items-center justify-center text-red-700 text-4xl">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-qtdGold uppercase">Artificial Intelligence</span>
-                        <h3 class="font-bold text-lg mt-2 mb-2">Deep Learning: Neural Networks</h3>
-                        <p class="text-sm text-gray-500 mb-4">Focus on complex model architecture including CNNs and RNNs.</p>
-                        <a href="{% url 'courses:dl_course' %}" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-                    <div class="h-40 bg-cyan-100 flex items-center justify-center text-cyan-700 text-4xl">
-                        <i class="fa-solid fa-chart-pie"></i>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-qtdGold uppercase">Business Intelligence</span>
-                        <h3 class="font-bold text-lg mt-2 mb-2">Microsoft Power BI Desktop</h3>
-                        <p class="text-sm text-gray-500 mb-4">Create compelling dashboards and reports for data-driven decisions.</p>
-                        <a href="{% url 'courses:powerbi_course' %}" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-                    <div class="h-40 bg-blue-100 flex items-center justify-center text-blue-700 text-4xl">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-qtdGold uppercase">Web Development</span>
-                        <h3 class="font-bold text-lg mt-2 mb-2">Python and Django Full Stack Bootcamp</h3>
-                        <p class="text-sm text-gray-500 mb-4">Build robust, database-driven web applications using Django framework.</p>
-                        <a href="#" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-                    <div class="h-40 bg-purple-100 flex items-center justify-center text-purple-700 text-4xl">
-                        <i class="fa-solid fa-list-check"></i>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-qtdGold uppercase">Project Management</span>
-                        <h3 class="font-bold text-lg mt-2 mb-2">Agile Project Management: Scrum, Kanban & XP</h3>
-                        <p class="text-sm text-gray-500 mb-4">Master modern project methodologies essential for IT and business success.</p>
-                        <a href="#" class="block w-full py-2 border border-qtdBlue text-qtdBlue text-center rounded hover:bg-qtdBlue hover:text-white transition">Details</a>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="mt-8 text-center md:hidden">
-                 <a href="#" class="text-qtdGold font-semibold hover:underline">View All Programs <i class="fa-solid fa-arrow-right ml-1"></i></a>
-            </div>
+        
+        <div class="mt-8 text-center md:hidden">
+             <a href="#" class="text-qtdGold font-semibold hover:underline">View All Programs <i class="fa-solid fa-arrow-right ml-1"></i></a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="batches" class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-heading text-3xl font-bold text-qtdBlue text-center mb-10">Upcoming Courses</h2>
-            <div class="overflow-x-auto">
-                <table class="min-w-full bg-white border rounded-lg overflow-hidden">
-                    <thead class="bg-qtdBlue text-white">
-                        <tr>
-                            <th class="py-3 px-6 text-left">Course Name</th>
-                            <th class="py-3 px-6 text-left">Start Date</th>
-                            <th class="py-3 px-6 text-left">Duration</th>
-                            <th class="py-3 px-6 text-center">Status</th>
-                            <th class="py-3 px-6 text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-700">
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-4 px-6 font-medium">Python for Beginners</td>
-                            <td class="py-4 px-6">Apr 20, 2026</td>
-                            <td class="py-4 px-6">24 Hours</td>
-                            <td class="py-4 px-6 text-center"><span class="bg-yellow-100 text-yellow-700 py-1 px-3 rounded-full text-xs font-bold">Filling Fast</span></td>
-                            <td class="py-4 px-6 text-center">                               
-                              <a href="{% url 'courses:courseEnroll' %}"
-                                 class="text-qtdBlue hover:text-qtdGold font-bold">
-                                    Enroll
-                              </a>
-                        </tr>              
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-4 px-6 font-medium">Machine Learning Specialization</td>
-                            <td class="py-4 px-6">Apr 26, 2026</td>
-                            <td class="py-4 px-6">20 Hours</td>
-                            <td class="py-4 px-6 text-center"><span class="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs font-bold">Open</span></td>
-                            <td class="py-4 px-6 text-center">             
-                              <a href="{% url 'courses:courseEnroll' %}"
-                                 class="text-qtdBlue hover:text-qtdGold font-bold">
-                                    Enroll
-                              </a>
-                        </tr>              
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="py-4 px-6 font-medium">Deep Learning: Neural Networks</td>
-                            <td class="py-4 px-6">May 3, 2026</td>
-                            <td class="py-4 px-6">20 Hours</td>
-                            <td class="py-4 px-6 text-center"><span class="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs font-bold">Open</span></td>
-                            <td class="py-4 px-6 text-center">
-                              <a href="{% url 'courses:courseEnroll' %}"
-                                 class="text-qtdBlue hover:text-qtdGold font-bold">
-                                    Enroll
-                              </a>
-                        </tr>              
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="py-4 px-6 font-medium">Microsoft Power BI Desktop</td>
-                            <td class="py-4 px-6">Apr 20, 2026</td>
-                            <td class="py-4 px-6">24 Hours</td>
-                            <td class="py-4 px-6 text-center"><span class="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs font-bold">Open</span></td>
-                            <td class="py-4 px-6 text-center">
-                                
-                              <a href="{% url 'courses:courseEnroll' %}"
-                                 class="text-qtdBlue hover:text-qtdGold font-bold">
-                                    Enroll
-                              </a>
-                        </tr>                        
-                    </tbody>
-                </table>
-            </div>
+<section id="batches" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-heading text-3xl font-bold text-qtdBlue text-center mb-10">Upcoming Courses</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border rounded-lg overflow-hidden">
+                <thead class="bg-qtdBlue text-white">
+                    <tr>
+                        <th class="py-3 px-6 text-left">Course Name</th>
+                        <th class="py-3 px-6 text-left">Start Date</th>
+                        <th class="py-3 px-6 text-left">Duration</th>
+                        <th class="py-3 px-6 text-center">Status</th>
+                        <th class="py-3 px-6 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-4 px-6 font-medium">Python for Beginners</td>
+                        <td class="py-4 px-6">Apr 20, 2026</td>
+                        <td class="py-4 px-6">24 Hours</td>
+                        <td class="py-4 px-6 text-center"><span class="bg-yellow-100 text-yellow-700 py-1 px-3 rounded-full text-xs font-bold">Filling Fast</span></td>
+                        <td class="py-4 px-6 text-center">                               
+                          <a href="{% url 'courses:courseEnroll' %}" class="text-qtdBlue hover:text-qtdGold font-bold">Enroll</a>
+                        </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-4 px-6 font-medium">Machine Learning Specialization</td>
+                        <td class="py-4 px-6">Apr 26, 2026</td>
+                        <td class="py-4 px-6">20 Hours</td>
+                        <td class="py-4 px-6 text-center"><span class="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs font-bold">Open</span></td>
+                        <td class="py-4 px-6 text-center">             
+                          <a href="{% url 'courses:courseEnroll' %}" class="text-qtdBlue hover:text-qtdGold font-bold">Enroll</a>
+                        </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-4 px-6 font-medium">Deep Learning: Neural Networks</td>
+                        <td class="py-4 px-6">May 3, 2026</td>
+                        <td class="py-4 px-6">20 Hours</td>
+                        <td class="py-4 px-6 text-center"><span class="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs font-bold">Open</span></td>
+                        <td class="py-4 px-6 text-center">
+                          <a href="{% url 'courses:courseEnroll' %}" class="text-qtdBlue hover:text-qtdGold font-bold">Enroll</a>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-4 px-6 font-medium">Microsoft Power BI Desktop</td>
+                        <td class="py-4 px-6">Apr 20, 2026</td>
+                        <td class="py-4 px-6">24 Hours</td>
+                        <td class="py-4 px-6 text-center"><span class="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs font-bold">Open</span></td>
+                        <td class="py-4 px-6 text-center">
+                          <a href="{% url 'courses:courseEnroll' %}" class="text-qtdBlue hover:text-qtdGold font-bold">Enroll</a>
+                        </td>
+                    </tr>                        
+                </tbody>
+            </table>
         </div>
-    </section>
-
+    </div>
+</section>
 {% endblock %}

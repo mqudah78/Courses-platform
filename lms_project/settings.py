@@ -122,6 +122,9 @@ USE_TZ = True
 # STATIC & MEDIA FILES
 # =========================
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",   # for your logo and custom files
+]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Whitenoise (important for Render)
