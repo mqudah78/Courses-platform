@@ -3,10 +3,10 @@ from . import views
 
 urlpatterns = [
     # Auth
-    path('register/', views.register_view, name='register'),
-    path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'),
 
+ #   path('register/', views.register_view, name='register'),
+ #   path('login/', views.login_view, name='login'),
+ #  path('logout/', views.logout_view, name='logout'),
     # Role redirect
     path('redirect/', views.role_redirect_view, name='role_redirect'),
 
