@@ -1,9 +1,18 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+
 
 # Create your models here.
 User = settings.AUTH_USER_MODEL
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Course(models.Model):
     DELIVERY_MODES = (
@@ -12,26 +21,74 @@ class Course(models.Model):
         ('class','In-Class'),
     )
 
+    LEVEL_CHOICES = (
+        ('beginner', 'Beginner'),
+        ('intermediate', 'Intermediate'),
+        ('advanced', 'Advanced'),
+    )
+
     title = models.CharField(max_length=200)
     description =models.TextField()
     instructor = models.ForeignKey(
     User,on_delete=models.CASCADE,
     related_name='courses'
     )
+  
+    slug = models.SlugField(unique=True, null=True, blank=True)
+
     delivery_mode = models.CharField(max_length=10,choices=DELIVERY_MODES)
+    
+    level = models.CharField(
+        max_length=20,
+        choices=LEVEL_CHOICES,
+        default='beginner'
+    )
 
     price = models.DecimalField(max_digits=8, decimal_places=2,default=0)
     duration_hours =models.PositiveIntegerField(default=20)
+    
+    image = models.ImageField(
+        upload_to='courses/',
+        blank=True,
+        null=True
+    )
+
 
     capacity = models.PositiveIntegerField(default=30) 
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
+
+    start_date = models.DateField(blank=True,null=True)
+
+    category = models.ForeignKey(
+    Category,
+    on_delete=models.SET_NULL,
+    null=True,
+    blank=True,
+    related_name='courses'
+)
 
     def seats_left(self): 
         return self.capacity - self.enrollments.count()
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+class LearningOutcome(models.Model):
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name='learning_outcomes'
+    )
+    text = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.text  
 
 
 class Module(models.Model):

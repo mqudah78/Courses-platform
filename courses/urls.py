@@ -4,9 +4,13 @@ from . import views
 app_name = 'courses'  
 
 urlpatterns = [
-    path('', views.course_list, name='course_list'),
+    path('', views.courses_list, name='course_list'),
+    path('enroll/', views.courseEnroll, name='courseEnroll'),
+    path('<slug:slug>/', views.course_detail, name='course_detail'),
+
+
     path('create/', views.course_create, name='course_create'),
-    path('<int:course_id>/', views.course_detail, name='course_detail'),
+    #path('<int:course_id>/', views.course_detail, name='course_detail'),
     path('lesson/<int:lesson_id>/', views.lesson_detail, name='lesson_detail'),
 
     path('<int:course_id>/add-module/', views.add_module, name='add_module'),
@@ -24,12 +28,15 @@ urlpatterns = [
     path('sessions/<int:session_id>/attendance/',views.mark_attendance,name='mark_attendance'),
     path('sessions/<int:session_id>/progress/',views.session_progress,name='session_progress'),
 
+    
+   
+
     path('python/', views.python_course, name='python_course'),
     path('ml/', views.ml_course, name='ml_course'),
     path('dl/', views.dl_course, name='dl_course'),
     path('powerbi/', views.powerbi_course, name='powerbi_course'),
 
-    path('enroll/', views.courseEnroll, name='courseEnroll'),
+   
 
 ]
 

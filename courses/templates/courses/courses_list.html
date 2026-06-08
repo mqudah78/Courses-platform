@@ -1,0 +1,149 @@
+{% extends "basemain.html" %}
+{% load static %}
+
+{% block content %}
+<section class="relative bg-gradient-to-b from-qtdBlue to-blue-950 text-white overflow-hidden pt-28 pb-16">
+    <br><br>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/50 via-transparent to-transparent opacity-60"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-6 text-center z-10">
+        <span class="inline-block bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-medium tracking-wide text-white uppercase mb-4">
+            Professional Training Programs
+        </span>
+
+        <h1 class="text-3xl md:text-4xl font-heading font-extrabold mt-1 leading-tight tracking-tight">
+            Upgrade Your Skills<br><span class="text-qtdGold">Advance Your Career</span>
+        </h1>
+
+        <p class="text-base md:text-lg text-gray-300 mt-4 max-w-2xl mx-auto font-light leading-relaxed">
+            Explore industry-focused courses designed to help professionals, students, and organizations develop practical, competitive skills for the modern workplace.
+        </p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 max-w-4xl mx-auto">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 text-center shadow-md transform hover:-translate-y-1 transition duration-300">
+                <h3 class="text-2xl md:text-3xl font-extrabold text-qtdGold">{{ courses.count }}+</h3>
+                <p class="text-gray-300 text-xs font-medium mt-0.5 uppercase tracking-wider">Courses</p>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 text-center shadow-md transform hover:-translate-y-1 transition duration-300">
+                <h3 class="text-2xl md:text-3xl font-extrabold text-qtdGold">100%</h3>
+                <p class="text-gray-300 text-xs font-medium mt-0.5 uppercase tracking-wider">Practical Learning</p>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 text-center shadow-md transform hover:-translate-y-1 transition duration-300">
+                <h3 class="text-2xl md:text-3xl font-extrabold text-white">Expert</h3>
+                <p class="text-gray-300 text-xs font-medium mt-0.5 uppercase tracking-wider">Training</p>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 text-center shadow-md transform hover:-translate-y-1 transition duration-300">
+                <h3 class="text-2xl md:text-3xl font-extrabold text-white">Career</h3>
+                <p class="text-gray-300 text-xs font-medium mt-0.5 uppercase tracking-wider">Focused</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="courses" class="py-24 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for course in courses %}
+            <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-300 flex flex-col h-full transform">
+                
+                {% if course.image %}
+                    <img src="{{ course.image.url }}"
+                         alt="{{ course.title }}"
+                         class="w-full h-44 object-cover">
+                {% else %}
+                    {% if "Python" in course.title or "Django" in course.title %}
+                        <div class="h-44 bg-green-50 flex items-center justify-center text-green-600 text-5xl">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                    {% elif "Machine" in course.title or "Data" in course.title %}
+                        <div class="h-44 bg-yellow-50 flex items-center justify-center text-yellow-600 text-5xl">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                    {% elif "Deep" in course.title or "Neural" in course.title or "Intelligence" in course.title %}
+                        <div class="h-44 bg-red-50 flex items-center justify-center text-red-600 text-5xl">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                    {% elif "Excel" in course.title or "Power" in course.title %}
+                        <div class="h-44 bg-cyan-50 flex items-center justify-center text-cyan-600 text-5xl">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                    {% else %}
+                        <div class="h-44 bg-blue-50 flex items-center justify-center text-blue-600 text-5xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-blue-50 border border-blue-100 text-qtdBlue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            {{ course.get_level_display }}
+                        </span>
+                        <span class="text-sm font-semibold text-gray-500">
+                            {{ course.duration_hours }} Hours
+                        </span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 leading-snug">
+                        {{ course.title }}
+                    </h3>
+
+                    <p class="text-gray-500 text-sm mb-6 flex-grow leading-relaxed">
+                        {{ course.description|truncatewords:18 }}
+                    </p>
+
+                    <div class="space-y-3 text-sm border-t border-b border-gray-50 py-4 mb-6">
+                        {% if course.category %}
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 font-medium">Category</span>
+                            <span class="text-gray-700 font-semibold">
+                                {{ course.category.name }}
+                            </span>
+                        </div>
+                        {% endif %}
+
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 font-medium">Delivery</span>
+                            <span class="text-gray-700 font-semibold">
+                                {{ course.get_delivery_mode_display }}
+                            </span>
+                        </div>
+
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 font-medium">Pricing Status</span>
+                            <span class="font-extrabold text-qtdBlue text-base">
+                                {% if course.price == 0 %}
+                                    <span class="text-emerald-600 font-bold uppercase tracking-wider text-xs bg-emerald-50 px-2 py-1 rounded border border-emerald-200">Free</span>
+                                {% else %}
+                                    ${{ course.price }}
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'courses:course_detail' course.slug %}"
+                       class="block w-full text-center bg-qtdBlue text-white py-3.5 rounded-lg font-bold hover:bg-blue-900 transition duration-200 shadow-md shadow-qtdBlue/10">
+                        View Course
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-24 bg-white rounded-2xl border border-gray-100 shadow-sm max-w-lg mx-auto px-6">
+                <div class="w-20 h-20 bg-gray-50 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800">
+                    No Courses Available
+                </h3>
+                <p class="text-gray-500 mt-2 leading-relaxed">
+                    We are currently structuring brand new programs. They will be published in the coming weeks.
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

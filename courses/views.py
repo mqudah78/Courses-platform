@@ -8,11 +8,35 @@ from django.utils import timezone
 
 
 
-@login_required
-def course_list(request):
-    courses = Course.objects.filter(is_active=True)
-    return render(request, 'courses/course_list.html', {'courses': courses})
+def courses_list(request):
+    courses = Course.objects.filter(
+        is_active=True
+    ).select_related('category')
 
+    return render(
+        request,
+        'courses/courses_list.html',
+        {
+            'courses': courses,
+        }
+    )
+
+
+def course_detail(request, slug):
+    """
+    Retrieves a single course based on its unique slug 
+    and renders its detailed page.
+    """
+    # 1. Fetch the course matching the slug from the URL, or return a 404 page if it doesn't exist
+    course = get_object_or_404(Course, slug=slug)
+    
+    # 2. Pass that course object into your detail template
+    context = {
+        'course': course
+    }
+    
+    # 3. Render the page
+    return render(request, 'courses/course_detail.html', context)
 
 @login_required
 @instructor_required
@@ -31,31 +55,6 @@ def course_create(request):
 
 from django.shortcuts import render, get_object_or_404
 from courses.models import Course, Enrollment
-
-def course_detail(request, course_id):
-    # Get the course
-    course = get_object_or_404(Course, id=course_id)
-    
-    # Get all modules with lessons
-    modules = course.modules.prefetch_related('lessons')
-    
-    # Initialize enrollment as None (for guests)
-    enrollment = None
-    
-    # Only try to get enrollment if user is logged in
-    if request.user.is_authenticated:
-        enrollment = Enrollment.objects.filter(
-            student=request.user,
-            course=course
-        ).first()
-    
-    # Render template with course, modules, and enrollment
-    return render(request, 'courses/course_detail.html', {
-        'course': course,
-        'modules': modules,
-        'enrollment': enrollment,
-    })
-
 
 @login_required
 def lesson_detail(request, lesson_id):
@@ -336,6 +335,62 @@ def dl_course(request):
 def powerbi_course(request):
     return render(request, 'courses/powerbi_course.html')
 
+
+
+
+# courses/views.py
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Course, CourseRegistration
+
+def courseEnroll(request):  # <--- Renamed to match views.courseEnroll in your URL
+    """
+    Handles guest/anonymous registration for a course.
+    """
+    if request.method == 'POST':
+        # 1. Extract the data from the form fields
+        full_name = request.POST.get('full_name')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        course_id = request.POST.get('course')
+        preferred_date = request.POST.get('preferred_date')
+        experience_level = request.POST.get('experience_level')
+        comments = request.POST.get('comments')
+
+        # 2. Match the selected course ID to an actual Course from the database
+        try:
+            selected_course = Course.objects.get(id=course_id)
+            
+            # 3. Create the registration record using your CourseRegistration model
+            CourseRegistration.objects.create(
+                full_name=full_name,
+                phone=phone,
+                email=email if email else None,  
+                course=selected_course,
+                preferred_date=preferred_date,
+                experience_level=experience_level,
+                comments=comments
+            )
+            
+            messages.success(request, f"Thank you {full_name}! Your registration for '{selected_course.title}' has been received.")
+            return redirect('courses:courseEnroll')
+            
+        except Course.DoesNotExist:
+            messages.error(request, "The selected course could not be found.")
+            return redirect('courses:courseEnroll')
+
+    # GET logic: Pull all courses to populate the form's dropdown menu
+    all_courses = Course.objects.all()
+    return render(request, 'courses/course_enroll.html', {'courses': all_courses})
+
+
+
+
+
+''' 
+
+
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import CourseRegistration, Course
@@ -388,3 +443,5 @@ def courseEnroll(request):
         'courses/course_enroll.html',
         {'preselected_course': preselected_course}
     )
+
+'''
