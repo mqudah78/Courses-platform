@@ -29,20 +29,17 @@
                 {{ course.description }}
             </p>
 
-            <h3 class="text-xl font-semibold mb-3 text-gray-800">What You Will Learn</h3>
+           <h3 class="text-xl font-semibold mb-3 text-gray-800">What You Will Learn</h3>
             <ul class="list-none text-gray-600 space-y-2.5">
-                <li class="flex items-start">
-                    <span class="text-emerald-500 mr-2">✓</span> Comprehensive structural insights and practical knowledge.
-                </li>
-                <li class="flex items-start">
-                    <span class="text-emerald-500 mr-2">✓</span> Real-world portfolio project implementation.
-                </li>
-                <li class="flex items-start">
-                    <span class="text-emerald-500 mr-2">✓</span> Hands-on assignments matching modern workplace tasks.
-                </li>
-                <li class="flex items-start">
-                    <span class="text-emerald-500 mr-2">✓</span> Direct industry-focused expertise from your trainer.
-                </li>
+                {% for outcome in course.learning_outcomes.all %}
+                    <li class="flex items-start">
+                        <span class="text-emerald-500 mr-2">✓</span> {{ outcome.text }}
+                    </li>
+                {% empty %}
+                    <li class="text-gray-400 italic">
+                        Learning outcomes for this course will be updated soon.
+                    </li>
+                {% endfor %}
             </ul>
         </div>
 
