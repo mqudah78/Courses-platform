@@ -68,107 +68,7 @@
     </div>
 </section>
 
-<!-- Popular Programs Section -->
-<section id="courses" class="py-24 bg-gray-50/50 border-t border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-            <div>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-qtdBlue">Popular Programs</h2>
-                <p class="text-gray-500 mt-2 text-lg">Specialized training in Data Science, Python, and Project Management.</p>
-            </div>
-            <a href="{% url 'courses:course_list' %}" class="inline-flex items-center text-qtdGold font-semibold text-lg hover:text-amber-600 transition group">
-                View All Programs 
-                <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition duration-200"></i>
-            </a>
-        </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Python for Beginners -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col h-full transform hover:-translate-y-1">
-                <div class="h-44 bg-green-50 flex items-center justify-center text-green-600 text-5xl">
-                    <i class="fa-brands fa-python"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs font-bold text-qtdGold uppercase tracking-wider">Coding Foundations</span>
-                    <h3 class="font-bold text-xl text-gray-800 mt-2 mb-2">Python for Beginners</h3>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow leading-relaxed">Learn the fundamentals of Python programming, syntax, and basic data structures to launch your coding journey.</p>
-                    <a href="{% url 'courses:python_course' %}" class="block w-full py-3 border-2 border-qtdBlue text-qtdBlue text-center font-semibold rounded-lg hover:bg-qtdBlue hover:text-white transition duration-200">Details</a>
-                </div>
-            </div>
-
-            <!-- Machine Learning -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col h-full transform hover:-translate-y-1">
-                <div class="h-44 bg-yellow-50 flex items-center justify-center text-yellow-600 text-5xl">
-                    <i class="fa-solid fa-robot"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs font-bold text-qtdGold uppercase tracking-wider">Data Science</span>
-                    <h3 class="font-bold text-xl text-gray-800 mt-2 mb-2">Machine Learning Specialization</h3>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow leading-relaxed">Comprehensive coverage of predictive modeling, data analysis pipelines, and intelligent algorithm deployment.</p>
-                    <a href="{% url 'courses:ml_course' %}" class="block w-full py-3 border-2 border-qtdBlue text-qtdBlue text-center font-semibold rounded-lg hover:bg-qtdBlue hover:text-white transition duration-200">Details</a>
-                </div>
-            </div>
-
-            <!-- Deep Learning -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col h-full transform hover:-translate-y-1">
-                <div class="h-44 bg-red-50 flex items-center justify-center text-red-600 text-5xl">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs font-bold text-qtdGold uppercase tracking-wider">Artificial Intelligence</span>
-                    <h3 class="font-bold text-xl text-gray-800 mt-2 mb-2">Deep Learning: Neural Networks</h3>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow leading-relaxed">Focus on complex deep neural network structures, including custom computer vision and NLP models.</p>
-                    <a href="{% url 'courses:dl_course' %}" class="block w-full py-3 border-2 border-qtdBlue text-qtdBlue text-center font-semibold rounded-lg hover:bg-qtdBlue hover:text-white transition duration-200">Details</a>
-                </div>
-            </div>
-
-            <!-- Power BI -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col h-full transform hover:-translate-y-1">
-                <div class="h-44 bg-cyan-50 flex items-center justify-center text-cyan-600 text-5xl">
-                    <i class="fa-solid fa-chart-pie"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs font-bold text-qtdGold uppercase tracking-wider">Business Intelligence</span>
-                    <h3 class="font-bold text-xl text-gray-800 mt-2 mb-2">Microsoft Power BI Desktop</h3>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow leading-relaxed">Create dynamic, robust dashboards and detailed analytical insights to make confident data-driven decisions.</p>
-                    <a href="{% url 'courses:powerbi_course' %}" class="block w-full py-3 border-2 border-qtdBlue text-qtdBlue text-center font-semibold rounded-lg hover:bg-qtdBlue hover:text-white transition duration-200">Details</a>
-                </div>
-            </div>
-
-            <!-- Web Dev -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col h-full transform hover:-translate-y-1">
-                <div class="h-44 bg-blue-50 flex items-center justify-center text-blue-600 text-5xl">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs font-bold text-qtdGold uppercase tracking-wider">Web Development</span>
-                    <h3 class="font-bold text-xl text-gray-800 mt-2 mb-2">Python and Django Full Stack</h3>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow leading-relaxed">Learn the entire lifecycle of secure backend application structures and modern web rendering environments.</p>
-                    <a href="#" class="block w-full py-3 border-2 border-qtdBlue text-qtdBlue text-center font-semibold rounded-lg hover:bg-qtdBlue hover:text-white transition duration-200">Details</a>
-                </div>
-            </div>
-
-            <!-- Agile PM -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col h-full transform hover:-translate-y-1">
-                <div class="h-44 bg-purple-50 flex items-center justify-center text-purple-600 text-5xl">
-                    <i class="fa-solid fa-list-check"></i>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs font-bold text-qtdGold uppercase tracking-wider">Project Management</span>
-                    <h3 class="font-bold text-xl text-gray-800 mt-2 mb-2">Agile PM: Scrum, Kanban & XP</h3>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow leading-relaxed">Master iterative product deployment environments, sprint tracking systems, and industry leadership structures.</p>
-                    <a href="#" class="block w-full py-3 border-2 border-qtdBlue text-qtdBlue text-center font-semibold rounded-lg hover:bg-qtdBlue hover:text-white transition duration-200">Details</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="mt-12 text-center md:hidden">
-             <a href="{% url 'courses:course_list' %}" class="inline-flex items-center text-qtdGold font-semibold hover:underline">
-                 View All Programs <i class="fa-solid fa-arrow-right ml-1"></i>
-             </a>
-        </div>
-    </div>
-</section>
 
 <!-- Upcoming Batches Table Section -->
 <section id="batches" class="py-24 bg-white">
@@ -191,8 +91,8 @@
                     <tbody class="text-gray-700 divide-y divide-gray-50 font-medium">
                         <tr class="hover:bg-gray-50/50 transition">
                             <td class="py-5 px-6 text-gray-900">Python for Beginners</td>
-                            <td class="py-5 px-6 text-gray-600">June 21, 2026</td>
-                            <td class="py-5 px-6 text-gray-600 font-normal">24 Hours</td>
+                            <td class="py-5 px-6 text-gray-600">Sep 13, 2026</td>
+                            <td class="py-5 px-6 text-gray-600 font-normal">20 Hours</td>
                             <td class="py-5 px-6 text-center">
                                 <span class="bg-amber-50 text-amber-700 py-1 px-3.5 rounded-full text-xs font-bold border border-amber-200/50">Filling Fast</span>
                             </td>
@@ -202,7 +102,7 @@
                         </tr>
                         <tr class="hover:bg-gray-50/50 transition">
                             <td class="py-5 px-6 text-gray-900">Machine Learning Specialization</td>
-                            <td class="py-5 px-6 text-gray-600">June 21, 2026</td>
+                            <td class="py-5 px-6 text-gray-600">Sep 20, 2026</td>
                             <td class="py-5 px-6 text-gray-600 font-normal">20 Hours</td>
                             <td class="py-5 px-6 text-center">
                                 <span class="bg-emerald-50 text-emerald-700 py-1 px-3.5 rounded-full text-xs font-bold border border-emerald-200/50">Open</span>
@@ -213,7 +113,7 @@
                         </tr>
                         <tr class="hover:bg-gray-50/50 transition">
                             <td class="py-5 px-6 text-gray-900">Deep Learning: Neural Networks</td>
-                            <td class="py-5 px-6 text-gray-600">June 21, 2026</td>
+                            <td class="py-5 px-6 text-gray-600">Sep 20, 2026</td>
                             <td class="py-5 px-6 text-gray-600 font-normal">20 Hours</td>
                             <td class="py-5 px-6 text-center">
                                 <span class="bg-emerald-50 text-emerald-700 py-1 px-3.5 rounded-full text-xs font-bold border border-emerald-200/50">Open</span>
@@ -222,17 +122,50 @@
                                 <a href="{% url 'courses:courseEnroll' %}" class="text-qtdBlue hover:text-qtdGold font-bold transition">Enroll</a>
                             </td>
                         </tr>
+
+
                         <tr class="hover:bg-gray-50/50 transition">
-                            <td class="py-5 px-6 text-gray-900">Microsoft Power BI Desktop</td>
-                            <td class="py-5 px-6 text-gray-600">June 21, 2026</td>
-                            <td class="py-5 px-6 text-gray-600 font-normal">24 Hours</td>
+                            <td class="py-5 px-6 text-gray-900">AI Engineer: Agentic AI, AI Agents & MCP</td>
+                            <td class="py-5 px-6 text-gray-600">Sep 13, 2026</td>
+                            <td class="py-5 px-6 text-gray-600 font-normal">20 Hours</td>
                             <td class="py-5 px-6 text-center">
                                 <span class="bg-emerald-50 text-emerald-700 py-1 px-3.5 rounded-full text-xs font-bold border border-emerald-200/50">Open</span>
                             </td>
                             <td class="py-5 px-6 text-center">
                                 <a href="{% url 'courses:courseEnroll' %}" class="text-qtdBlue hover:text-qtdGold font-bold transition">Enroll</a>
                             </td>
-                        </tr>                        
+                        </tr>
+
+                        <tr class="hover:bg-gray-50/50 transition">
+                            <td class="py-5 px-6 text-gray-900">Microsoft Power BI Desktop</td>
+                            <td class="py-5 px-6 text-gray-600">Sep 13, 2026</td>
+                            <td class="py-5 px-6 text-gray-600 font-normal">20 Hours</td>
+                            <td class="py-5 px-6 text-center">
+                                <span class="bg-emerald-50 text-emerald-700 py-1 px-3.5 rounded-full text-xs font-bold border border-emerald-200/50">Open</span>
+                            </td>
+                            <td class="py-5 px-6 text-center">
+                                <a href="{% url 'courses:courseEnroll' %}" class="text-qtdBlue hover:text-qtdGold font-bold transition">Enroll</a>
+                            </td>
+                        </tr>
+                        
+                        <tr class="hover:bg-gray-50/50 transition">
+                            <td class="py-5 px-6 text-gray-900">Agile PM: Scrum, Kanban & XP</td>
+                            <td class="py-5 px-6 text-gray-600">Sep 13, 2026</td>
+                            <td class="py-5 px-6 text-gray-600 font-normal">20 Hours</td>
+                            <td class="py-5 px-6 text-center">
+                                <span class="bg-emerald-50 text-emerald-700 py-1 px-3.5 rounded-full text-xs font-bold border border-emerald-200/50">Open</span>
+                            </td>
+                            <td class="py-5 px-6 text-center">
+                                <a href="{% url 'courses:courseEnroll' %}" class="text-qtdBlue hover:text-qtdGold font-bold transition">Enroll</a>
+                            </td>
+                        </tr>
+                                      
+                        
+
+
+
+
+
                     </tbody>
                 </table>
             </div>
